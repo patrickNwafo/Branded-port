@@ -173,7 +173,7 @@ export default function Hero() {
                             </Button>
                             <Button
                                 as="a"
-                                href="/cv.pdf"
+                                href="/api/cv"
                                 variant="ghost"
                                 className="px-7 py-3.5"
                             >

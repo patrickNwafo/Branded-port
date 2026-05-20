@@ -11,10 +11,14 @@ export default function LoadingScreen() {
     const topLeftRef = useRef<HTMLDivElement>(null);
     const topRightRef = useRef<HTMLDivElement>(null);
     const labelRef = useRef<HTMLParagraphElement>(null);
+    const safetyFiredRef = useRef(false);
 
     useEffect(() => {
-        if (typeof window === "undefined") return;
-        const alreadySeen = Boolean(sessionStorage.getItem("portfolio-loaded"));
+        const alreadySeen = Boolean(
+            typeof window !== "undefined"
+                ? sessionStorage.getItem("portfolio-loaded")
+                : null,
+        );
 
         if (alreadySeen) {
             gsap.to(containerRef.current, {
@@ -29,6 +33,7 @@ export default function LoadingScreen() {
             onComplete: () => {
                 sessionStorage.setItem("portfolio-loaded", "1");
                 setDone(true);
+                safetyFiredRef.current = true;
             },
         });
 
@@ -78,8 +83,17 @@ export default function LoadingScreen() {
                 ease: "power2.in",
             });
 
+        const safety = setTimeout(() => {
+            if (!safetyFiredRef.current) {
+                sessionStorage.setItem("portfolio-loaded", "1");
+                setDone(true);
+                safetyFiredRef.current = true;
+            }
+        }, 4000);
+
         return () => {
             tl.kill();
+            clearTimeout(safety);
         };
     }, []);
 

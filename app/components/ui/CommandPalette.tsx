@@ -122,7 +122,7 @@ export default function CommandPalette() {
                     shortcut: "R",
                     action: () => {
                         setOpen(false);
-                        window.open("/cv.pdf", "_blank");
+                        window.open("/api/cv", "_blank");
                     },
                 },
                 {

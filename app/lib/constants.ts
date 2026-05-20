@@ -47,6 +47,7 @@ export const SKILLS: SkillCategory[] = [
         category: "Backend & Data",
         items: [
             { name: "Node.js" },
+            { name: "Python" },
             { name: "Supabase" },
             { name: "PostgreSQL" },
             { name: "REST APIs" },
