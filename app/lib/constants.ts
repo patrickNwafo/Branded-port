@@ -4,10 +4,10 @@ export const SITE_META = {
     tagline:
         "Building scalable systems, immersive interfaces, and ambitious digital experiences. Based in Nigeria, working globally.",
     location: "Nigeria",
-    email: "chinedu@example.com",
-    github: "https://github.com/chinedu",
-    linkedin: "https://linkedin.com/in/chinedu",
-    twitter: "https://twitter.com/chinedu",
+    email: "patrickchinwafor@gmail.com",
+    github: "https://github.com/patrickNwafo",
+    linkedin: "https://www.linkedin.com/in/chinedu01/",
+    twitter: "https://x.com/devchinex",
     stats: [
         { value: "6+", label: "Years Engineering" },
         { value: "20+", label: "Products Shipped" },

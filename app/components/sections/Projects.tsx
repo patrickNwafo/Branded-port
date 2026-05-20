@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { ExternalLink, Code2 } from "lucide-react";
+import Image from "next/image";
 import { gsap } from "@/app/lib/gsap";
 import {
     PROJECTS,
@@ -183,6 +184,56 @@ export default function Projects() {
     );
 }
 
+function ImageArea({ project }: { project: Project }) {
+    const [failed, setFailed] = useState(false);
+
+    return (
+        <div
+            style={{
+                aspectRatio: "16/9",
+                background: "var(--elevated)",
+                position: "relative",
+                overflow: "hidden",
+            }}
+        >
+            {project.image && !failed ? (
+                <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover"
+                    onError={() => setFailed(true)}
+                    style={{ transition: "opacity 0.3s ease" }}
+                />
+            ) : null}
+            <div
+                className="absolute inset-0"
+                style={{
+                    background:
+                        "linear-gradient(to bottom, rgba(0,0,0,0) 50%, rgba(4,8,15,0.6) 100%)",
+                    pointerEvents: "none",
+                }}
+            />
+            {(!project.image || failed) && (
+                <div className="absolute inset-0 flex items-center justify-center">
+                    <span
+                        style={{
+                            fontFamily: "var(--font-syne)",
+                            fontSize: "11px",
+                            letterSpacing: "0.25em",
+                            textTransform: "uppercase",
+                            color: "rgba(0,200,255,0.3)",
+                        }}
+                    >
+                        {project.title}
+                    </span>
+                </div>
+            )}
+        </div>
+    );
+}
+
 function ProjectCard({ project }: { project: Project }) {
     const cardRef = useRef<HTMLDivElement>(null);
 
@@ -229,34 +280,7 @@ function ProjectCard({ project }: { project: Project }) {
             }}
         >
             {/* Image area */}
-            <div
-                style={{
-                    aspectRatio: "16/9",
-                    background: "var(--elevated)",
-                    position: "relative",
-                    overflow: "hidden",
-                }}
-            >
-                {/* Placeholder gradient */}
-                <div
-                    className="absolute inset-0 flex items-center justify-center"
-                    style={{
-                        background: `linear-gradient(135deg, rgba(0,200,255,0.06) 0%, rgba(0,87,255,0.08) 100%)`,
-                    }}
-                >
-                    <span
-                        style={{
-                            fontFamily: "var(--font-syne)",
-                            fontSize: "11px",
-                            letterSpacing: "0.25em",
-                            textTransform: "uppercase",
-                            color: "rgba(0,200,255,0.3)",
-                        }}
-                    >
-                        {project.title}
-                    </span>
-                </div>
-            </div>
+            <ImageArea project={project} />
 
             {/* Content */}
             <div className="p-6 flex flex-col gap-4">
