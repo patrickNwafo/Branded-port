@@ -344,48 +344,53 @@ function ProjectCard({ project }: { project: Project }) {
                     className="flex items-center gap-4 pt-2"
                     style={{ borderTop: "1px solid rgba(0,200,255,0.07)" }}
                 >
-                    <a
-                        href={project.link}
-                        className="flex items-center gap-1.5 text-[13px] transition-colors duration-200"
-                        style={{
-                            fontFamily: "var(--font-jetbrains)",
-                            color: "var(--text-dim)",
-                        }}
-                        onMouseEnter={(e) => {
-                            (e.currentTarget as HTMLAnchorElement).style.color =
-                                "var(--cyan)";
-                        }}
-                        onMouseLeave={(e) => {
-                            (e.currentTarget as HTMLAnchorElement).style.color =
-                                "var(--text-dim)";
-                        }}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        <ExternalLink size={13} />
-                        Live ↗
-                    </a>
-                    <a
-                        href={project.github}
-                        className="flex items-center gap-1.5 text-[13px] transition-colors duration-200"
-                        style={{
-                            fontFamily: "var(--font-jetbrains)",
-                            color: "var(--text-dim)",
-                        }}
-                        onMouseEnter={(e) => {
-                            (e.currentTarget as HTMLAnchorElement).style.color =
-                                "var(--cyan)";
-                        }}
-                        onMouseLeave={(e) => {
-                            (e.currentTarget as HTMLAnchorElement).style.color =
-                                "var(--text-dim)";
-                        }}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        <Code2 size={13} />
-                        GitHub
-                    </a>
+                    <div className="flex gap-3">
+                        <a
+                            href={project.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style={{
+                                color: "var(--text-dim)",
+                                transition: "color 0.2s ease",
+                            }}
+                            onMouseEnter={(e) =>
+                                ((
+                                    e.currentTarget as HTMLAnchorElement
+                                ).style.color = "var(--cyan)")
+                            }
+                            onMouseLeave={(e) =>
+                                ((
+                                    e.currentTarget as HTMLAnchorElement
+                                ).style.color = "var(--text-dim)")
+                            }
+                        >
+                            <ExternalLink size={13} />
+                        </a>
+                        {project.github && (
+                            <a
+                                href={project.github}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                style={{
+                                    color: "var(--text-dim)",
+                                    transition: "color 0.2s ease",
+                                }}
+                                onMouseEnter={(e) =>
+                                    ((
+                                        e.currentTarget as HTMLAnchorElement
+                                    ).style.color = "var(--cyan)")
+                                }
+                                onMouseLeave={(e) =>
+                                    ((
+                                        e.currentTarget as HTMLAnchorElement
+                                    ).style.color = "var(--text-dim)")
+                                }
+                            >
+                                <Code2 size={13} />
+                                GitHub
+                            </a>
+                        )}
+                    </div>
                 </div>
             </div>
         </motion.div>

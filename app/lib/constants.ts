@@ -85,7 +85,7 @@ export type Project = {
     description: string;
     tags: string[];
     link: string;
-    github: string;
+    github?: string;
     image: string;
     featured?: boolean;
 };
@@ -99,7 +99,6 @@ export const PROJECTS: Project[] = [
             "Evolved from a static HTML implementation into a production-grade rental platform — frontend architecture, backend systems, booking workflows, admin infrastructure, and scalable deployment for a South African car rental business.",
         tags: ["Next.js", "Supabase", "Stripe", "TypeScript"],
         link: "https://carrental-plus.com/",
-        github: "#",
         image: "/images/projects/car-rental-plus.png",
         featured: true,
     },
@@ -111,7 +110,6 @@ export const PROJECTS: Project[] = [
             "Fullstack professional network platform with complex admin systems, scalable architecture, and seamless user management workflows.",
         tags: ["Next.js", "Supabase", "TypeScript"],
         link: "https://grandconnects.com",
-        github: "#",
         image: "/images/projects/grandconnects.png",
     },
     {
@@ -122,7 +120,7 @@ export const PROJECTS: Project[] = [
             "Interactive 3D product customization experience combining real-time rendering with AI-assisted logo generation, texture systems, and typography customization.",
         tags: ["Three.js", "React Three Fiber", "AI", "TypeScript"],
         link: "https://threejscustomizer-rt.vercel.app/",
-        github: "#",
+        github: "https://github.com/patrickNwafo/threejscustomizer",
         image: "/images/projects/3d-customizer.png",
     },
     {
@@ -133,7 +131,7 @@ export const PROJECTS: Project[] = [
             "AI-powered document intelligence platform — upload PDFs and interact conversationally through retrieval-augmented generation, delivering accurate, context-aware responses.",
         tags: ["Next.js", "OpenAI", "LangChain", "TypeScript"],
         link: "https://chat-with-pdf-virid.vercel.app/",
-        github: "#",
+        github: "https://github.com/patrickNwafo/chat-with-pdf",
         image: "/images/projects/chat-with-pdf.png",
     },
     {
@@ -144,7 +142,6 @@ export const PROJECTS: Project[] = [
             "Full-stack marketplace platform with vendor management, admin infrastructure, multi-role authentication, and transactional systems built for scale.",
         tags: ["Next.js", "TypeScript", "Supabase", "Node.js"],
         link: "https://www.perkingsmarketplace.com/",
-        github: "#",
         image: "/images/projects/perkings.png",
     },
     {
@@ -155,7 +152,6 @@ export const PROJECTS: Project[] = [
             "Community platform and marketplace for Nigerians — fullstack architecture with admin systems, user-generated content, and real-time community features.",
         tags: ["Next.js", "TypeScript", "Supabase", "Node.js"],
         link: "https://in9ja.com/",
-        github: "#",
         image: "/images/projects/in9ja.png",
     },
 ];
