@@ -438,7 +438,7 @@ export default function ResumePDF() {
                 <Text style={styles.sectionTitle}>Education</Text>
                 <View style={styles.sectionDivider} />
                 <Text style={styles.education}>
-                    Bachelor's Degree in Computer Science
+                    Bachelor`&rsquo;` Degree in Computer Science
                 </Text>
                 <Text style={styles.education}>
                     Ecole Supérieure des Technologies Avancées et de Management

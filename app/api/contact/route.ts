@@ -1,10 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = process.env.RESEND_API_KEY
+    ? new Resend(process.env.RESEND_API_KEY)
+    : null;
 
 function buildEmailHtml(name: string, email: string, message: string): string {
-  return `<!DOCTYPE html>
+    return `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -95,45 +97,52 @@ function buildEmailHtml(name: string, email: string, message: string): string {
 }
 
 export async function POST(request: NextRequest) {
-  try {
-    const body = await request.json();
-    const { name, email, message } = body as {
-      name: string;
-      email: string;
-      message: string;
-    };
-
-    if (!name || !email || !message) {
-      return NextResponse.json(
-        { error: "Name, email, and message are required." },
-        { status: 400 }
-      );
+    if (!resend) {
+        return NextResponse.json(
+            { error: "Email service not configured" },
+            { status: 503 },
+        );
     }
 
-    const { error } = await resend.emails.send({
-      // Replace with your verified Resend domain once set up:
-      // e.g. "Portfolio <hello@yourdomain.com>"
-      from: "Chinedu Portfolio <onboarding@resend.dev>",
-      to: "patrickchinwafor@gmail.com",
-      replyTo: email,
-      subject: `New message from ${name} — Portfolio`,
-      html: buildEmailHtml(name, email, message),
-    });
+    try {
+        const body = await request.json();
+        const { name, email, message } = body as {
+            name: string;
+            email: string;
+            message: string;
+        };
 
-    if (error) {
-      console.error("[Resend error]", error);
-      return NextResponse.json(
-        { error: "Failed to send message. Please try again." },
-        { status: 500 }
-      );
+        if (!name || !email || !message) {
+            return NextResponse.json(
+                { error: "Name, email, and message are required." },
+                { status: 400 },
+            );
+        }
+
+        const { error } = await resend.emails.send({
+            // Replace with your verified Resend domain once set up:
+            // e.g. "Portfolio <hello@yourdomain.com>"
+            from: "Chinedu Portfolio <onboarding@resend.dev>",
+            to: "patrickchinwafor@gmail.com",
+            replyTo: email,
+            subject: `New message from ${name} — Portfolio`,
+            html: buildEmailHtml(name, email, message),
+        });
+
+        if (error) {
+            console.error("[Resend error]", error);
+            return NextResponse.json(
+                { error: "Failed to send message. Please try again." },
+                { status: 500 },
+            );
+        }
+
+        return NextResponse.json({ success: true });
+    } catch (err) {
+        console.error("[Contact route error]", err);
+        return NextResponse.json(
+            { error: "Something went wrong. Please try again." },
+            { status: 500 },
+        );
     }
-
-    return NextResponse.json({ success: true });
-  } catch (err) {
-    console.error("[Contact route error]", err);
-    return NextResponse.json(
-      { error: "Something went wrong. Please try again." },
-      { status: 500 }
-    );
-  }
 }
