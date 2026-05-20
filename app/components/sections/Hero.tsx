@@ -98,7 +98,9 @@ export default function Hero() {
                             <div className="overflow-clip">
                                 <h1
                                     className="name-line block font-[family-name:var(--font-syne)] font-extrabold leading-[0.95] text-[var(--text-bright)]"
-                                    style={{ fontSize: "var(--text-9xl)" }}
+                                    style={{
+                                        fontSize: "clamp(36px, 8vw, 88px)",
+                                    }}
                                 >
                                     Chinedu
                                 </h1>
@@ -106,7 +108,9 @@ export default function Hero() {
                             <div className="overflow-clip">
                                 <h1
                                     className="name-line block font-[family-name:var(--font-syne)] font-extrabold leading-[0.95] text-[var(--text-bright)]"
-                                    style={{ fontSize: "var(--text-9xl)" }}
+                                    style={{
+                                        fontSize: "clamp(36px, 8vw, 88px)",
+                                    }}
                                 >
                                     Nwafor
                                     <span className="text-[var(--cyan)]">
@@ -129,7 +133,7 @@ export default function Hero() {
                                         "linear-gradient(90deg, #00C8FF 0%, #0057FF 100%)",
                                     WebkitBackgroundClip: "text",
                                     WebkitTextFillColor: "transparent",
-                                    fontSize: "var(--text-xl)",
+                                    fontSize: "clamp(18px, 4vw, 24px)",
                                 }}
                             >
                                 Fullstack &amp; Product Engineer
@@ -139,7 +143,7 @@ export default function Hero() {
                         {/* Description */}
                         <p
                             ref={descRef}
-                            className="mt-5 font-[family-name:var(--font-jetbrains)] text-[14px] font-light leading-[1.8] text-[var(--text-mid)] max-w-[480px]"
+                            className="mt-5 font-[family-name:var(--font-jetbrains)] text-[13px] sm:text-[14px] font-light leading-[1.7] sm:leading-[1.8] text-[var(--text-mid)] max-w-[480px]"
                             style={{ opacity: 0 }}
                         >
                             {SITE_META.tagline}
@@ -152,14 +156,14 @@ export default function Hero() {
                         {/* CTAs */}
                         <div
                             ref={ctaRef}
-                            className="mt-8 flex flex-wrap items-center gap-4"
+                            className="mt-8 flex flex-wrap items-center gap-3 sm:gap-4"
                             style={{ opacity: 0 }}
                         >
                             <Button
                                 as="a"
                                 href="#projects"
                                 variant="primary"
-                                className="px-7 py-3.5"
+                                className="px-6 py-3 sm:px-7 sm:py-3.5"
                                 onClick={(e) => {
                                     e.preventDefault();
                                     document
@@ -175,7 +179,7 @@ export default function Hero() {
                                 as="a"
                                 href="/api/cv"
                                 variant="ghost"
-                                className="px-7 py-3.5"
+                                className="px-6 py-3 sm:px-7 sm:py-3.5"
                             >
                                 Download CV
                             </Button>
@@ -184,15 +188,15 @@ export default function Hero() {
                         {/* Stats row */}
                         <div
                             ref={statsRef}
-                            className="mt-12 flex items-center gap-8 border-t border-[rgba(0,200,255,0.08)] pt-8"
+                            className="mt-10 sm:mt-12 flex items-center gap-6 sm:gap-8 border-t border-[rgba(0,200,255,0.08)] pt-6 sm:pt-8"
                             style={{ opacity: 0 }}
                         >
                             {SITE_META.stats.map((stat) => (
                                 <div key={stat.label} className="flex flex-col">
-                                    <span className="font-[family-name:var(--font-syne)] font-extrabold text-[var(--text-bright)] text-[28px] leading-none">
+                                    <span className="font-[family-name:var(--font-syne)] font-extrabold text-[var(--text-bright)] text-[24px] sm:text-[28px] leading-none">
                                         {stat.value}
                                     </span>
-                                    <span className="mt-1 font-[family-name:var(--font-jetbrains)] text-[11px] tracking-widest uppercase text-[var(--text-dim)]">
+                                    <span className="mt-1 font-[family-name:var(--font-jetbrains)] text-[10px] sm:text-[11px] tracking-widest uppercase text-[var(--text-dim)]">
                                         {stat.label}
                                     </span>
                                 </div>

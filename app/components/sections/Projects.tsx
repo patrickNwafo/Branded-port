@@ -78,11 +78,11 @@ export default function Projects() {
                 {/* Heading */}
                 <div ref={headingRef} className="mb-16" style={{ opacity: 0 }}>
                     <SectionTag className="mb-4">Selected Work</SectionTag>
-                    <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+                    <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
                         <h2
                             style={{
                                 fontFamily: "var(--font-syne)",
-                                fontSize: "var(--text-4xl)",
+                                fontSize: "clamp(28px, 5vw, 42px)",
                                 fontWeight: 800,
                                 color: "var(--text-bright)",
                             }}
@@ -92,7 +92,7 @@ export default function Projects() {
                         <p
                             style={{
                                 fontFamily: "var(--font-jetbrains)",
-                                fontSize: "13px",
+                                fontSize: "12px",
                                 fontWeight: 300,
                                 color: "var(--text-mid)",
                                 maxWidth: "320px",
@@ -107,7 +107,7 @@ export default function Projects() {
                 {/* Grid */}
                 <div
                     ref={gridRef}
-                    className="grid grid-cols-1 md:grid-cols-2 gap-6"
+                    className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6"
                 >
                     {PROJECTS.map((project) => (
                         <ProjectCard key={project.id} project={project} />
@@ -116,14 +116,14 @@ export default function Projects() {
 
                 {/* Additional work */}
                 <div
-                    className="mt-12 pt-10"
+                    className="mt-10 pt-8"
                     style={{ borderTop: "1px solid rgba(0,200,255,0.07)" }}
                 >
                     <p
                         className="mb-6"
                         style={{
                             fontFamily: "var(--font-jetbrains)",
-                            fontSize: "11px",
+                            fontSize: "10px",
                             letterSpacing: "0.2em",
                             textTransform: "uppercase",
                             color: "var(--text-dim)",
@@ -236,8 +236,17 @@ function ImageArea({ project }: { project: Project }) {
 
 function ProjectCard({ project }: { project: Project }) {
     const cardRef = useRef<HTMLDivElement>(null);
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth < 768);
+        checkMobile();
+        window.addEventListener("resize", checkMobile);
+        return () => window.removeEventListener("resize", checkMobile);
+    }, []);
 
     function handleMouseMove(e: React.MouseEvent<HTMLDivElement>) {
+        if (isMobile) return;
         const card = cardRef.current;
         if (!card) return;
         const rect = card.getBoundingClientRect();
@@ -265,16 +274,20 @@ function ProjectCard({ project }: { project: Project }) {
                 (e.currentTarget as HTMLElement).style.borderColor =
                     "rgba(0,200,255,0.35)";
             }}
-            whileHover={{
-                boxShadow: "0 0 40px rgba(0,200,255,0.08)",
-            }}
+            whileHover={
+                isMobile
+                    ? {}
+                    : {
+                          boxShadow: "0 0 40px rgba(0,200,255,0.08)",
+                      }
+            }
             transition={{ duration: 0.25 }}
             style={{
                 background: "var(--surface)",
                 border: "1px solid rgba(0,200,255,0.10)",
                 borderRadius: "8px",
                 overflow: "hidden",
-                willChange: "transform",
+                willChange: isMobile ? "auto" : "transform",
                 transition:
                     "transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease",
             }}
@@ -283,13 +296,13 @@ function ProjectCard({ project }: { project: Project }) {
             <ImageArea project={project} />
 
             {/* Content */}
-            <div className="p-6 flex flex-col gap-4">
+            <div className="p-4 sm:p-6 flex flex-col gap-3 sm:gap-4">
                 <div>
-                    <div className="flex items-center justify-between mb-3">
+                    <div className="flex items-start sm:items-center justify-between mb-2 sm:mb-3 gap-2">
                         <h3
                             style={{
                                 fontFamily: "var(--font-syne)",
-                                fontSize: "18px",
+                                fontSize: "clamp(16px, 3vw, 18px)",
                                 fontWeight: 600,
                                 color: "var(--text-bright)",
                             }}
@@ -299,10 +312,11 @@ function ProjectCard({ project }: { project: Project }) {
                         <span
                             style={{
                                 fontFamily: "var(--font-jetbrains)",
-                                fontSize: "10px",
-                                letterSpacing: "0.15em",
+                                fontSize: "9px",
+                                letterSpacing: "0.1em",
                                 textTransform: "uppercase",
                                 color: "var(--text-dim)",
+                                whiteSpace: "nowrap",
                             }}
                         >
                             {project.role}
@@ -311,9 +325,9 @@ function ProjectCard({ project }: { project: Project }) {
                     <p
                         style={{
                             fontFamily: "var(--font-body)",
-                            fontSize: "13px",
+                            fontSize: "12px",
                             fontWeight: 300,
-                            lineHeight: 1.75,
+                            lineHeight: 1.6,
                             color: "var(--text-mid)",
                         }}
                     >
@@ -322,11 +336,11 @@ function ProjectCard({ project }: { project: Project }) {
                 </div>
 
                 {/* Tags */}
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-1.5 sm:gap-2">
                     {project.tags.map((tag) => (
                         <span
                             key={tag}
-                            className="px-2.5 py-1 rounded text-[11px]"
+                            className="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded text-[10px] sm:text-[11px]"
                             style={{
                                 fontFamily: "var(--font-jetbrains)",
                                 background: "rgba(0,200,255,0.06)",
