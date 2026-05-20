@@ -1,12 +1,13 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import dynamic from "next/dynamic";
 import { gsap } from "@/app/lib/gsap";
 import { SITE_META } from "@/app/lib/constants";
 import SectionTag from "@/app/components/ui/SectionTag";
 import Button from "@/app/components/ui/Button";
 import NoiseBg from "@/app/components/ui/NoiseBg";
+import CVDownloadModal from "@/app/components/ui/CVDownloadModal";
 
 const HeroCanvas = dynamic(() => import("@/app/components/three/HeroCanvas"), {
     ssr: false,
@@ -19,6 +20,7 @@ export default function Hero() {
     const descRef = useRef<HTMLParagraphElement>(null);
     const ctaRef = useRef<HTMLDivElement>(null);
     const statsRef = useRef<HTMLDivElement>(null);
+    const [isCVModalOpen, setIsCVModalOpen] = useState(false);
 
     useEffect(() => {
         const tl = gsap.timeline({ defaults: { ease: "expo.out" } });
@@ -176,8 +178,8 @@ export default function Hero() {
                                 View Projects ↗
                             </Button>
                             <Button
-                                as="a"
-                                href="/api/cv"
+                                as="button"
+                                onClick={() => setIsCVModalOpen(true)}
                                 variant="ghost"
                                 className="px-6 py-3 sm:px-7 sm:py-3.5"
                             >
@@ -218,6 +220,12 @@ export default function Hero() {
                 </span>
                 <div className="w-[1px] h-12 bg-gradient-to-b from-[var(--cyan)] to-transparent opacity-50" />
             </div>
+
+            {/* CV Download Modal */}
+            <CVDownloadModal
+                isOpen={isCVModalOpen}
+                onClose={() => setIsCVModalOpen(false)}
+            />
         </section>
     );
 }

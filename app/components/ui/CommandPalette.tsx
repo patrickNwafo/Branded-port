@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { SITE_META } from "@/app/lib/constants";
+import CVDownloadModal from "@/app/components/ui/CVDownloadModal";
 
 type Command = {
     id: string;
@@ -25,6 +26,7 @@ export default function CommandPalette() {
     const [open, setOpen] = useState(false);
     const [query, setQuery] = useState("");
     const [activeIndex, setActiveIndex] = useState(0);
+    const [isCVModalOpen, setIsCVModalOpen] = useState(false);
     const inputRef = useRef<HTMLInputElement>(null);
 
     const COMMAND_GROUPS: CommandGroup[] = [
@@ -122,7 +124,7 @@ export default function CommandPalette() {
                     shortcut: "R",
                     action: () => {
                         setOpen(false);
-                        window.open("/api/cv", "_blank");
+                        setIsCVModalOpen(true);
                     },
                 },
                 {
@@ -588,6 +590,12 @@ export default function CommandPalette() {
                     </>
                 )}
             </AnimatePresence>
+
+            {/* CV Download Modal */}
+            <CVDownloadModal
+                isOpen={isCVModalOpen}
+                onClose={() => setIsCVModalOpen(false)}
+            />
         </>
     );
 }
