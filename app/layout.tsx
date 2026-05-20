@@ -3,6 +3,8 @@ import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import LenisProvider from "@/app/components/ui/LenisProvider";
 import CustomCursor from "@/app/components/ui/CustomCursor";
+import LoadingScreen from "@/app/components/ui/LoadingScreen";
+import CommandPalette from "@/app/components/ui/CommandPalette";
 
 const spaceGrotesk = Space_Grotesk({
     variable: "--font-syne",
@@ -61,7 +63,9 @@ export default function RootLayout({
         >
             <body>
                 <LenisProvider>
+                    <LoadingScreen />
                     <CustomCursor />
+                    <CommandPalette />
                     {children}
                 </LenisProvider>
             </body>

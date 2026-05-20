@@ -4,7 +4,11 @@ import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { ExternalLink, Code2 } from "lucide-react";
 import { gsap } from "@/app/lib/gsap";
-import { PROJECTS, type Project } from "@/app/lib/constants";
+import {
+    PROJECTS,
+    ADDITIONAL_PROJECTS,
+    type Project,
+} from "@/app/lib/constants";
 import SectionTag from "@/app/components/ui/SectionTag";
 import NoiseBg from "@/app/components/ui/NoiseBg";
 
@@ -107,6 +111,72 @@ export default function Projects() {
                     {PROJECTS.map((project) => (
                         <ProjectCard key={project.id} project={project} />
                     ))}
+                </div>
+
+                {/* Additional work */}
+                <div
+                    className="mt-12 pt-10"
+                    style={{ borderTop: "1px solid rgba(0,200,255,0.07)" }}
+                >
+                    <p
+                        className="mb-6"
+                        style={{
+                            fontFamily: "var(--font-jetbrains)",
+                            fontSize: "11px",
+                            letterSpacing: "0.2em",
+                            textTransform: "uppercase",
+                            color: "var(--text-dim)",
+                        }}
+                    >
+                        Also built
+                    </p>
+                    <div className="flex flex-wrap gap-4">
+                        {ADDITIONAL_PROJECTS.map((p) => (
+                            <a
+                                key={p.url}
+                                href={p.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="group flex flex-col gap-1 px-5 py-3.5 rounded transition-all duration-200"
+                                style={{
+                                    background: "var(--surface)",
+                                    border: "1px solid rgba(0,200,255,0.08)",
+                                }}
+                                onMouseEnter={(e) => {
+                                    const el = e.currentTarget;
+                                    el.style.borderColor =
+                                        "rgba(0,200,255,0.25)";
+                                    el.style.background = "var(--elevated)";
+                                }}
+                                onMouseLeave={(e) => {
+                                    const el = e.currentTarget;
+                                    el.style.borderColor =
+                                        "rgba(0,200,255,0.08)";
+                                    el.style.background = "var(--surface)";
+                                }}
+                            >
+                                <span
+                                    style={{
+                                        fontFamily: "var(--font-syne)",
+                                        fontSize: "14px",
+                                        fontWeight: 600,
+                                        color: "var(--text-bright)",
+                                    }}
+                                >
+                                    {p.title} ↗
+                                </span>
+                                <span
+                                    style={{
+                                        fontFamily: "var(--font-jetbrains)",
+                                        fontSize: "11px",
+                                        color: "var(--text-dim)",
+                                    }}
+                                >
+                                    {p.description}
+                                </span>
+                            </a>
+                        ))}
+                    </div>
                 </div>
             </div>
         </section>

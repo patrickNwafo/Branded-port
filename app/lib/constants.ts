@@ -96,7 +96,7 @@ export const PROJECTS: Project[] = [
         role: "Fullstack Engineer",
         description:
             "Evolved from a static HTML implementation into a production-grade rental platform — frontend architecture, backend systems, booking workflows, admin infrastructure, and scalable deployment for a South African car rental business.",
-        tags: ["Next.js", "Node.js", "Supabase", "TypeScript"],
+        tags: ["Next.js", "Supabase", "Stripe", "TypeScript"],
         link: "https://carrental-plus.com/",
         github: "#",
         image: "/images/projects/car-rental-plus.png",
@@ -169,37 +169,61 @@ export type ExperienceItem = {
 
 export const EXPERIENCE: ExperienceItem[] = [
     {
-        role: "Fullstack & Product Engineer",
-        company: "Independent — Client Work & Products",
-        period: "2022 — Present",
-        location: "Nigeria (Remote)",
+        role: "Full Stack Engineer",
+        company: "Tsaleach Global Pty Ltd",
+        period: "Apr 2025 — Present",
+        location: "Remote",
         bullets: [
-            "Engineered Car Rental Plus from a static HTML prototype into a full production platform — booking systems, admin infrastructure, backend architecture, and scalable deployment.",
-            "Built GrandConnects, Perkings Marketplace, and IN9JA: fullstack platforms with complex admin systems, multi-role auth, and scalable architecture.",
-            "Developed the 3D Customizer — real-time 3D rendering combined with AI-assisted logo generation and texture customization workflows.",
-            "Shipped Chat With PDF: an AI document intelligence tool using retrieval-augmented generation to deliver conversational PDF interaction.",
+            "Leading development of Car Rental Plus — a production-grade platform serving real-world operational rental workflows across South Africa.",
+            "Architecting and maintaining both frontend and backend systems: booking flows, Stripe payment integrations, admin infrastructure, and performance optimization.",
+            "Building scalable user experiences that balance technical reliability with premium interaction design using Next.js, Supabase, and Tailwind CSS.",
+            "Implementing backend infrastructure and database workflows engineered for operational scalability and long-term maintainability.",
         ],
     },
     {
-        role: "Frontend → Fullstack Expansion",
-        company: "Self-Directed Growth & Client Projects",
-        period: "2020 — 2022",
-        location: "Nigeria",
+        role: "Creative Frontend / Software Engineer",
+        company: "Paul Injeti Collaboration",
+        period: "Jun 2024 — Mar 2025",
+        location: "Remote",
         bullets: [
-            "Expanded from frontend engineering into backend systems, API design, and database architecture — driven by real project demands.",
-            "Adopted Supabase, TypeScript, and modern fullstack patterns across multiple client platforms in e-commerce and services verticals.",
-            "Began exploring 3D, animation systems, and AI-augmented workflows — developing the creative engineering identity that defines current work.",
+            "Contributed to immersive frontend experiences and interactive web interfaces combining cinematic interaction design with modern engineering.",
+            "Built animation systems with GSAP and Three.js / React Three Fiber for motion-driven, GPU-accelerated user experiences.",
+            "Developed advanced UI interaction patterns — scroll-driven reveals, parallax depth, and inertia-based transitions.",
         ],
     },
     {
-        role: "Early Engineering & Foundation",
-        company: "Exploration & Client Work",
-        period: "2018 — 2020",
-        location: "Nigeria",
+        role: "Software Engineer",
+        company: "CenterBox Solutions",
+        period: "Dec 2022 — Present",
+        location: "Remote",
         bullets: [
-            "Started with HTML, CSS, and vanilla JavaScript — rapidly progressing through React and component-driven UI architecture.",
-            "Built client websites, landing pages, and internal tools across diverse industries, developing a strong design sensibility alongside technical skill.",
-            "Understood early that engineering and UX are inseparable — every interface is a system with human consequences.",
+            "Collaborating on modern web applications across multiple industries — frontend systems, backend integrations, and scalable product experiences.",
+            "Building responsive, maintainable, and production-ready applications within cross-functional teams focused on product-grade engineering.",
+            "Contributing across React ecosystems, scalable frontend architecture, backend integrations, and responsive design systems.",
         ],
+    },
+];
+
+export type AdditionalProject = {
+    title: string;
+    url: string;
+    description: string;
+};
+
+export const ADDITIONAL_PROJECTS: AdditionalProject[] = [
+    {
+        title: "The Tighty Society",
+        url: "https://thetightysociety.com/",
+        description: "Brand & community platform",
+    },
+    {
+        title: "DALL·E Generator",
+        url: "https://dall-e-rose-ten.vercel.app/",
+        description: "AI image generation interface",
+    },
+    {
+        title: "ICE Global Resources",
+        url: "https://iceglobalresources.com/",
+        description: "Corporate web platform",
     },
 ];
