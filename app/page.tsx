@@ -1,8 +1,9 @@
 import Navbar from "@/app/components/ui/Navbar";
 import Hero from "@/app/components/sections/Hero";
-import About from "@/app/components/sections/About";
-import Skills from "@/app/components/sections/Skills";
 import Projects from "@/app/components/sections/Projects";
+import EngineeringPhilosophy from "@/app/components/sections/EngineeringPhilosophy";
+import CurrentExploration from "@/app/components/sections/CurrentExploration";
+import Skills from "@/app/components/sections/Skills";
 import Experience from "@/app/components/sections/Experience";
 import Contact from "@/app/components/sections/Contact";
 
@@ -12,9 +13,10 @@ export default function Home() {
             <Navbar />
             <main>
                 <Hero />
-                <About />
-                <Skills />
                 <Projects />
+                <EngineeringPhilosophy />
+                <CurrentExploration />
+                <Skills />
                 <Experience />
                 <Contact />
             </main>

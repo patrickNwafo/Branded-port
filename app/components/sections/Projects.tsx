@@ -191,20 +191,32 @@ function ProjectCard({ project }: { project: Project }) {
             {/* Content */}
             <div className="p-6 flex flex-col gap-4">
                 <div>
-                    <h3
-                        style={{
-                            fontFamily: "var(--font-syne)",
-                            fontSize: "18px",
-                            fontWeight: 600,
-                            color: "var(--text-bright)",
-                            marginBottom: "8px",
-                        }}
-                    >
-                        {project.title}
-                    </h3>
+                    <div className="flex items-center justify-between mb-3">
+                        <h3
+                            style={{
+                                fontFamily: "var(--font-syne)",
+                                fontSize: "18px",
+                                fontWeight: 600,
+                                color: "var(--text-bright)",
+                            }}
+                        >
+                            {project.title}
+                        </h3>
+                        <span
+                            style={{
+                                fontFamily: "var(--font-jetbrains)",
+                                fontSize: "10px",
+                                letterSpacing: "0.15em",
+                                textTransform: "uppercase",
+                                color: "var(--text-dim)",
+                            }}
+                        >
+                            {project.role}
+                        </span>
+                    </div>
                     <p
                         style={{
-                            fontFamily: "var(--font-jetbrains)",
+                            fontFamily: "var(--font-body)",
                             fontSize: "13px",
                             fontWeight: 300,
                             lineHeight: 1.75,

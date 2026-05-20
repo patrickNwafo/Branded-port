@@ -1,13 +1,21 @@
 import type { Metadata } from "next";
-import { Syne, JetBrains_Mono } from "next/font/google";
+import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import LenisProvider from "@/app/components/ui/LenisProvider";
 import CustomCursor from "@/app/components/ui/CustomCursor";
 
-const syne = Syne({
+const spaceGrotesk = Space_Grotesk({
     variable: "--font-syne",
     subsets: ["latin"],
-    weight: ["400", "500", "600", "700", "800"],
+    weight: ["400", "500", "600", "700"],
+    display: "swap",
+    preload: true,
+});
+
+const inter = Inter({
+    variable: "--font-body",
+    subsets: ["latin"],
+    weight: ["300", "400", "500"],
     display: "swap",
     preload: true,
 });
@@ -21,21 +29,22 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-    title: "Chinedu Nwafor — Full Stack & Mobile Engineer",
+    title: "Chinedu Nwafor — Fullstack & Product Engineer",
     description:
-        "Full Stack and Mobile Engineer with 6+ years building scalable digital systems and immersive product experiences. Based in Nigeria, working globally.",
+        "Fullstack and product engineer building scalable systems, immersive interfaces, and ambitious digital experiences. Based in Nigeria, working globally.",
     keywords: [
-        "Full Stack Engineer",
-        "Mobile Developer",
-        "React Native",
+        "Fullstack Engineer",
+        "Product Engineer",
         "Next.js",
-        "Node.js",
+        "React",
+        "Supabase",
         "Nigeria",
+        "Three.js",
     ],
     openGraph: {
-        title: "Chinedu Nwafor — Full Stack & Mobile Engineer",
+        title: "Chinedu Nwafor — Fullstack & Product Engineer",
         description:
-            "Building scalable systems and immersive product experiences.",
+            "Building scalable systems, immersive interfaces, and ambitious digital experiences.",
         type: "website",
     },
 };
@@ -48,7 +57,7 @@ export default function RootLayout({
     return (
         <html
             lang="en"
-            className={`${syne.variable} ${jetbrainsMono.variable}`}
+            className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable}`}
         >
             <body>
                 <LenisProvider>

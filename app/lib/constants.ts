@@ -1,206 +1,205 @@
 export const SITE_META = {
-  name: "Chinedu Nwafor",
-  title: "Full Stack & Mobile Engineer",
-  tagline: "Building high-performance digital products — from scalable backends to immersive mobile experiences. Based in Nigeria, working globally.",
-  location: "Nigeria",
-  email: "chinedu@example.com",
-  github: "https://github.com/chinedu",
-  linkedin: "https://linkedin.com/in/chinedu",
-  twitter: "https://twitter.com/chinedu",
-  stats: [
-    { value: "6+", label: "Years Experience" },
-    { value: "30+", label: "Projects Shipped" },
-    { value: "12+", label: "Happy Clients" },
-  ],
+    name: "Chinedu Nwafor",
+    title: "Fullstack & Product Engineer",
+    tagline:
+        "Building scalable systems, immersive interfaces, and ambitious digital experiences. Based in Nigeria, working globally.",
+    location: "Nigeria",
+    email: "chinedu@example.com",
+    github: "https://github.com/chinedu",
+    linkedin: "https://linkedin.com/in/chinedu",
+    twitter: "https://twitter.com/chinedu",
+    stats: [
+        { value: "6+", label: "Years Engineering" },
+        { value: "20+", label: "Products Shipped" },
+        { value: "12+", label: "Clients Served" },
+    ],
 };
 
 export const NAV_LINKS = [
-  { label: "About", href: "#about" },
-  { label: "Work", href: "#projects" },
-  { label: "Skills", href: "#skills" },
-  { label: "Experience", href: "#experience" },
+    { label: "Work", href: "#projects" },
+    { label: "Philosophy", href: "#philosophy" },
+    { label: "Systems", href: "#skills" },
+    { label: "Journey", href: "#experience" },
 ];
 
 export type Skill = {
-  name: string;
+    name: string;
 };
 
 export type SkillCategory = {
-  category: string;
-  items: Skill[];
+    category: string;
+    items: Skill[];
 };
 
 export const SKILLS: SkillCategory[] = [
-  {
-    category: "Frontend",
-    items: [
-      { name: "React" },
-      { name: "Next.js" },
-      { name: "TypeScript" },
-      { name: "Tailwind CSS" },
-      { name: "Framer Motion" },
-      { name: "Three.js" },
-    ],
-  },
-  {
-    category: "Backend",
-    items: [
-      { name: "Node.js" },
-      { name: "Express" },
-      { name: "Python" },
-      { name: "PostgreSQL" },
-      { name: "MongoDB" },
-      { name: "Redis" },
-      { name: "REST" },
-      { name: "GraphQL" },
-    ],
-  },
-  {
-    category: "Mobile",
-    items: [
-      { name: "React Native" },
-      { name: "Flutter" },
-      { name: "Expo" },
-      { name: "iOS" },
-      { name: "Android" },
-    ],
-  },
-  {
-    category: "Tools",
-    items: [
-      { name: "Git" },
-      { name: "Docker" },
-      { name: "AWS" },
-      { name: "Vercel" },
-      { name: "Figma" },
-      { name: "CI/CD" },
-    ],
-  },
+    {
+        category: "Frontend Systems",
+        items: [
+            { name: "Next.js" },
+            { name: "React" },
+            { name: "TypeScript" },
+            { name: "Tailwind CSS" },
+            { name: "Framer Motion" },
+            { name: "GSAP" },
+        ],
+    },
+    {
+        category: "Backend & Data",
+        items: [
+            { name: "Node.js" },
+            { name: "Supabase" },
+            { name: "PostgreSQL" },
+            { name: "REST APIs" },
+            { name: "Express" },
+            { name: "Prisma" },
+        ],
+    },
+    {
+        category: "3D & Creative",
+        items: [
+            { name: "Three.js" },
+            { name: "React Three Fiber" },
+            { name: "Drei" },
+            { name: "WebGL" },
+            { name: "GLSL" },
+        ],
+    },
+    {
+        category: "AI & Infrastructure",
+        items: [
+            { name: "OpenAI API" },
+            { name: "LangChain" },
+            { name: "Vercel" },
+            { name: "Docker" },
+            { name: "Git" },
+            { name: "Figma" },
+        ],
+    },
 ];
 
 export type Project = {
-  id: number;
-  title: string;
-  description: string;
-  tags: string[];
-  link: string;
-  github: string;
-  image: string;
+    id: number;
+    title: string;
+    role: string;
+    description: string;
+    tags: string[];
+    link: string;
+    github: string;
+    image: string;
+    featured?: boolean;
 };
 
 export const PROJECTS: Project[] = [
-  {
-    id: 1,
-    title: "NexaBank",
-    description:
-      "A fintech mobile application delivering seamless banking experiences with real-time transactions, biometric auth, and advanced analytics.",
-    tags: ["React Native", "Node.js", "PostgreSQL", "Redis"],
-    link: "#",
-    github: "#",
-    image: "/images/projects/project-1.png",
-  },
-  {
-    id: 2,
-    title: "ShipTrack",
-    description:
-      "Real-time logistics platform with live shipment tracking, driver management, and predictive ETA using WebSocket-driven data pipelines.",
-    tags: ["Next.js", "WebSockets", "Redis", "Node.js"],
-    link: "#",
-    github: "#",
-    image: "/images/projects/project-2.png",
-  },
-  {
-    id: 3,
-    title: "MedConnect",
-    description:
-      "Healthcare booking system connecting patients to specialists across Africa — built for scale with offline-first mobile architecture.",
-    tags: ["Flutter", "Express", "MongoDB", "AWS"],
-    link: "#",
-    github: "#",
-    image: "/images/projects/project-3.png",
-  },
-  {
-    id: 4,
-    title: "DevMetrics",
-    description:
-      "Developer analytics dashboard surfacing team velocity, code quality signals, and deployment trends from multiple CI/CD sources.",
-    tags: ["React", "D3.js", "Python", "PostgreSQL"],
-    link: "#",
-    github: "#",
-    image: "/images/projects/project-4.png",
-  },
-  {
-    id: 5,
-    title: "AgroLink",
-    description:
-      "AgriTech marketplace connecting Nigerian farmers to buyers and logistics providers — web and mobile with real-time pricing data.",
-    tags: ["Next.js", "React Native", "AWS", "Node.js"],
-    link: "#",
-    github: "#",
-    image: "/images/projects/project-5.png",
-  },
-  {
-    id: 6,
-    title: "TaskFlow AI",
-    description:
-      "AI-powered task management that learns team workflows, auto-prioritises work, and generates intelligent project summaries.",
-    tags: ["Next.js", "OpenAI API", "Prisma", "TypeScript"],
-    link: "#",
-    github: "#",
-    image: "/images/projects/project-6.png",
-  },
+    {
+        id: 1,
+        title: "Car Rental Plus",
+        role: "Fullstack Engineer",
+        description:
+            "Evolved from a static HTML implementation into a production-grade rental platform — frontend architecture, backend systems, booking workflows, admin infrastructure, and scalable deployment for a South African car rental business.",
+        tags: ["Next.js", "Node.js", "Supabase", "TypeScript"],
+        link: "https://carrental-plus.com/",
+        github: "#",
+        image: "/images/projects/car-rental-plus.png",
+        featured: true,
+    },
+    {
+        id: 2,
+        title: "GrandConnects",
+        role: "Fullstack Engineer",
+        description:
+            "Fullstack professional network platform with complex admin systems, scalable architecture, and seamless user management workflows.",
+        tags: ["Next.js", "Supabase", "TypeScript"],
+        link: "https://grandconnects.com",
+        github: "#",
+        image: "/images/projects/grandconnects.png",
+    },
+    {
+        id: 3,
+        title: "3D Customizer",
+        role: "Creative Engineer",
+        description:
+            "Interactive 3D product customization experience combining real-time rendering with AI-assisted logo generation, texture systems, and typography customization.",
+        tags: ["Three.js", "React Three Fiber", "AI", "TypeScript"],
+        link: "https://threejscustomizer-rt.vercel.app/",
+        github: "#",
+        image: "/images/projects/3d-customizer.png",
+    },
+    {
+        id: 4,
+        title: "Chat With PDF",
+        role: "Fullstack Engineer",
+        description:
+            "AI-powered document intelligence platform — upload PDFs and interact conversationally through retrieval-augmented generation, delivering accurate, context-aware responses.",
+        tags: ["Next.js", "OpenAI", "LangChain", "TypeScript"],
+        link: "https://chat-with-pdf-virid.vercel.app/",
+        github: "#",
+        image: "/images/projects/chat-with-pdf.png",
+    },
+    {
+        id: 5,
+        title: "Perkings Marketplace",
+        role: "Fullstack Engineer",
+        description:
+            "Full-stack marketplace platform with vendor management, admin infrastructure, multi-role authentication, and transactional systems built for scale.",
+        tags: ["Next.js", "TypeScript", "Supabase", "Node.js"],
+        link: "https://www.perkingsmarketplace.com/",
+        github: "#",
+        image: "/images/projects/perkings.png",
+    },
+    {
+        id: 6,
+        title: "IN9JA",
+        role: "Fullstack Engineer",
+        description:
+            "Community platform and marketplace for Nigerians — fullstack architecture with admin systems, user-generated content, and real-time community features.",
+        tags: ["Next.js", "TypeScript", "Supabase", "Node.js"],
+        link: "https://in9ja.com/",
+        github: "#",
+        image: "/images/projects/in9ja.png",
+    },
 ];
 
 export type ExperienceItem = {
-  role: string;
-  company: string;
-  period: string;
-  location: string;
-  bullets: string[];
+    role: string;
+    company: string;
+    period: string;
+    location: string;
+    bullets: string[];
 };
 
 export const EXPERIENCE: ExperienceItem[] = [
-  {
-    role: "Senior Full Stack Engineer",
-    company: "TechCorp Africa",
-    period: "2022 — Present",
-    location: "Lagos, Nigeria",
-    bullets: [
-      "Architected and shipped 4 production-grade platforms across fintech and healthtech verticals.",
-      "Led a 6-person engineering team, driving code standards, PR reviews, and sprint planning.",
-      "Reduced API response times by 68% through caching strategies and query optimisation.",
-      "Introduced a design-system approach that cut frontend dev time by 40%.",
-    ],
-  },
-  {
-    role: "Mobile Developer",
-    company: "Fintech Startup",
-    period: "2020 — 2022",
-    location: "Abuja, Nigeria",
-    bullets: [
-      "Built and shipped a React Native mobile banking app to 50,000+ users on iOS and Android.",
-      "Implemented biometric authentication and end-to-end encryption for financial data.",
-      "Collaborated with designers to create micro-interactions that raised app rating to 4.8/5.",
-    ],
-  },
-  {
-    role: "Frontend Developer",
-    company: "Digital Agency",
-    period: "2019 — 2020",
-    location: "Lagos, Nigeria",
-    bullets: [
-      "Delivered 12+ client websites with React, achieving Lighthouse scores above 95.",
-      "Pioneered adoption of TypeScript across the frontend team.",
-    ],
-  },
-  {
-    role: "Junior Developer",
-    company: "Software House",
-    period: "2018 — 2019",
-    location: "Lagos, Nigeria",
-    bullets: [
-      "Built internal tooling and admin dashboards using React and Node.js.",
-      "Contributed to backend API development and database schema design.",
-    ],
-  },
+    {
+        role: "Fullstack & Product Engineer",
+        company: "Independent — Client Work & Products",
+        period: "2022 — Present",
+        location: "Nigeria (Remote)",
+        bullets: [
+            "Engineered Car Rental Plus from a static HTML prototype into a full production platform — booking systems, admin infrastructure, backend architecture, and scalable deployment.",
+            "Built GrandConnects, Perkings Marketplace, and IN9JA: fullstack platforms with complex admin systems, multi-role auth, and scalable architecture.",
+            "Developed the 3D Customizer — real-time 3D rendering combined with AI-assisted logo generation and texture customization workflows.",
+            "Shipped Chat With PDF: an AI document intelligence tool using retrieval-augmented generation to deliver conversational PDF interaction.",
+        ],
+    },
+    {
+        role: "Frontend → Fullstack Expansion",
+        company: "Self-Directed Growth & Client Projects",
+        period: "2020 — 2022",
+        location: "Nigeria",
+        bullets: [
+            "Expanded from frontend engineering into backend systems, API design, and database architecture — driven by real project demands.",
+            "Adopted Supabase, TypeScript, and modern fullstack patterns across multiple client platforms in e-commerce and services verticals.",
+            "Began exploring 3D, animation systems, and AI-augmented workflows — developing the creative engineering identity that defines current work.",
+        ],
+    },
+    {
+        role: "Early Engineering & Foundation",
+        company: "Exploration & Client Work",
+        period: "2018 — 2020",
+        location: "Nigeria",
+        bullets: [
+            "Started with HTML, CSS, and vanilla JavaScript — rapidly progressing through React and component-driven UI architecture.",
+            "Built client websites, landing pages, and internal tools across diverse industries, developing a strong design sensibility alongside technical skill.",
+            "Understood early that engineering and UX are inseparable — every interface is a system with human consequences.",
+        ],
+    },
 ];
