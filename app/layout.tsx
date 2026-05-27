@@ -43,6 +43,10 @@ export const metadata: Metadata = {
         "Nigeria",
         "Three.js",
     ],
+    icons: {
+        icon: "/favicon.svg",
+        shortcut: "/favicon.svg",
+    },
     openGraph: {
         title: "Chinedu Nwafor — Fullstack & Product Engineer",
         description:

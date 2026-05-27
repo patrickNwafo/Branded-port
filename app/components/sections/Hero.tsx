@@ -165,7 +165,7 @@ export default function Hero() {
                                 as="a"
                                 href="#projects"
                                 variant="primary"
-                                className="px-6 py-3 sm:px-7 sm:py-3.5"
+                                size="lg"
                                 onClick={(e) => {
                                     e.preventDefault();
                                     document
@@ -181,7 +181,7 @@ export default function Hero() {
                                 as="button"
                                 onClick={() => setIsCVModalOpen(true)}
                                 variant="ghost"
-                                className="px-6 py-3 sm:px-7 sm:py-3.5"
+                                size="lg"
                             >
                                 Download CV
                             </Button>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <rect width="64" height="64" rx="14" fill="#0A1628"/>
+  <rect width="64" height="64" rx="14" fill="none" stroke="#00C8FF" stroke-width="1" stroke-opacity="0.45"/>
+  <text x="32" y="22" font-family="Space Grotesk, system-ui, sans-serif" font-weight="800" font-size="13" fill="#7A9BB5" text-anchor="middle" letter-spacing="1">CN</text>
+  <line x1="14" y1="30" x2="50" y2="30" stroke="#0F2040" stroke-width="1.5"/>
+  <text x="32" y="46" font-family="JetBrains Mono, monospace" font-weight="500" font-size="10" fill="#00C8FF" text-anchor="middle" letter-spacing="2">DEV</text>
+  <rect x="0" y="56" width="64" height="2.5" rx="1.25" fill="#00C8FF" opacity="0.65"/>
+</svg>

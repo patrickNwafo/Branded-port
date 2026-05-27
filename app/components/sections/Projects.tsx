@@ -296,56 +296,60 @@ function ProjectCard({ project }: { project: Project }) {
             <ImageArea project={project} />
 
             {/* Content */}
-            <div className="p-4 sm:p-6 flex flex-col gap-3 sm:gap-4">
-                <div>
-                    <div className="flex items-start sm:items-center justify-between mb-2 sm:mb-3 gap-2">
-                        <h3
-                            style={{
-                                fontFamily: "var(--font-syne)",
-                                fontSize: "clamp(16px, 3vw, 18px)",
-                                fontWeight: 600,
-                                color: "var(--text-bright)",
-                            }}
-                        >
-                            {project.title}
-                        </h3>
-                        <span
-                            style={{
-                                fontFamily: "var(--font-jetbrains)",
-                                fontSize: "9px",
-                                letterSpacing: "0.1em",
-                                textTransform: "uppercase",
-                                color: "var(--text-dim)",
-                                whiteSpace: "nowrap",
-                            }}
-                        >
-                            {project.role}
-                        </span>
-                    </div>
-                    <p
+            <div className="p-5 sm:p-6 flex flex-col gap-4">
+                {/* Title + role row */}
+                <div className="flex items-start justify-between gap-3">
+                    <h3
                         style={{
-                            fontFamily: "var(--font-body)",
-                            fontSize: "12px",
-                            fontWeight: 300,
-                            lineHeight: 1.6,
-                            color: "var(--text-mid)",
+                            fontFamily: "var(--font-syne)",
+                            fontSize: "17px",
+                            fontWeight: 700,
+                            color: "var(--text-bright)",
+                            lineHeight: 1.2,
                         }}
                     >
-                        {project.description}
-                    </p>
+                        {project.title}
+                    </h3>
+                    <span
+                        style={{
+                            fontFamily: "var(--font-jetbrains)",
+                            fontSize: "9px",
+                            letterSpacing: "0.12em",
+                            textTransform: "uppercase",
+                            color: "var(--text-dim)",
+                            whiteSpace: "nowrap",
+                            paddingTop: "3px",
+                        }}
+                    >
+                        {project.role}
+                    </span>
                 </div>
 
+                {/* Description */}
+                <p
+                    style={{
+                        fontFamily: "var(--font-body)",
+                        fontSize: "13px",
+                        fontWeight: 300,
+                        lineHeight: 1.65,
+                        color: "var(--text-mid)",
+                    }}
+                >
+                    {project.description}
+                </p>
+
                 {/* Tags */}
-                <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                <div className="flex flex-wrap gap-1.5">
                     {project.tags.map((tag) => (
                         <span
                             key={tag}
-                            className="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded text-[10px] sm:text-[11px]"
+                            className="px-2.5 py-1 rounded-sm text-[10px]"
                             style={{
                                 fontFamily: "var(--font-jetbrains)",
-                                background: "rgba(0,200,255,0.06)",
-                                border: "1px solid rgba(0,200,255,0.15)",
-                                color: "var(--text-mid)",
+                                background: "rgba(0,200,255,0.05)",
+                                border: "1px solid rgba(0,200,255,0.12)",
+                                color: "var(--text-dim)",
+                                letterSpacing: "0.05em",
                             }}
                         >
                             {tag}
@@ -355,17 +359,47 @@ function ProjectCard({ project }: { project: Project }) {
 
                 {/* Links */}
                 <div
-                    className="flex items-center gap-4 pt-2"
+                    className="flex items-center gap-5 pt-3"
                     style={{ borderTop: "1px solid rgba(0,200,255,0.07)" }}
                 >
-                    <div className="flex gap-3">
+                    <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-1.5"
+                        style={{
+                            fontFamily: "var(--font-jetbrains)",
+                            fontSize: "11px",
+                            color: "var(--text-dim)",
+                            transition: "color 0.2s ease",
+                            letterSpacing: "0.05em",
+                        }}
+                        onMouseEnter={(e) =>
+                            ((
+                                e.currentTarget as HTMLAnchorElement
+                            ).style.color = "var(--cyan)")
+                        }
+                        onMouseLeave={(e) =>
+                            ((
+                                e.currentTarget as HTMLAnchorElement
+                            ).style.color = "var(--text-dim)")
+                        }
+                    >
+                        <ExternalLink size={12} />
+                        Live
+                    </a>
+                    {project.github && (
                         <a
-                            href={project.link}
+                            href={project.github}
                             target="_blank"
                             rel="noopener noreferrer"
+                            className="flex items-center gap-1.5"
                             style={{
+                                fontFamily: "var(--font-jetbrains)",
+                                fontSize: "11px",
                                 color: "var(--text-dim)",
                                 transition: "color 0.2s ease",
+                                letterSpacing: "0.05em",
                             }}
                             onMouseEnter={(e) =>
                                 ((
@@ -378,33 +412,10 @@ function ProjectCard({ project }: { project: Project }) {
                                 ).style.color = "var(--text-dim)")
                             }
                         >
-                            <ExternalLink size={13} />
+                            <Code2 size={12} />
+                            GitHub
                         </a>
-                        {project.github && (
-                            <a
-                                href={project.github}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                style={{
-                                    color: "var(--text-dim)",
-                                    transition: "color 0.2s ease",
-                                }}
-                                onMouseEnter={(e) =>
-                                    ((
-                                        e.currentTarget as HTMLAnchorElement
-                                    ).style.color = "var(--cyan)")
-                                }
-                                onMouseLeave={(e) =>
-                                    ((
-                                        e.currentTarget as HTMLAnchorElement
-                                    ).style.color = "var(--text-dim)")
-                                }
-                            >
-                                <Code2 size={13} />
-                                GitHub
-                            </a>
-                        )}
-                    </div>
+                    )}
                 </div>
             </div>
         </motion.div>
